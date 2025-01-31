@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>PLATOS TIPICOS</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Puntaje</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+
+    <body>
+        {% for platotipico in segunda_parte %}
+        <tr>
+            <td>
+                <a href="{% url 'platotipico_detalle' platotipico.id %}">
+                {{ platotipico.nombre }}
+                </a>
+            </td>
+            <td>{{ platotipico.stock }}</td>
+            <td>{{ platotipico.puntaje }}</td>
+            <td>{{ platotipico.categoria }}</td>
+        </tr>
+        {% endfor %}
+    </body>
+</table>
+
+{% endblock %}
